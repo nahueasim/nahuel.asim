@@ -30,14 +30,35 @@ header h1 {
 }
 
 /* Navigation */
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    background-color: #2b3058;
-    padding: 10px 0;
+nav {
+    position: relative; /* Permite el uso de posicionamiento absoluto en el menú */
 }
 
+nav input[type="checkbox"] {
+    display: none; /* Oculta el checkbox */
+}
+
+nav label {
+    display: block; /* Muestra el botón */
+    cursor: pointer;
+    background-color: #2b3058;
+    color: white;
+    padding: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+nav ul {
+    display: none; /* Oculta el menú en dispositivos móviles */
+}
+
+nav input[type="checkbox"]:checked + label + ul {
+    display: flex; /* Muestra el menú cuando el checkbox está marcado */
+    flex-direction: column; /* Apila los elementos del menú */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+}
+
+/* Estilos para los elementos del menú */
 nav ul li {
     margin: 0 15px;
 }
@@ -93,74 +114,12 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .miembros {
-        grid-template-columns: 1fr;
-        margin: 35px 15px;
-    }
     nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-                margin-top: -50px;
+        width: 100%; /* Asegura que el menú ocupe todo el ancho */
+        margin-top: 10px; /* Espacio entre el botón y el menú */
     }
+
     nav ul li {
-        margin-bottom: 0.5rem;
-        width: 100%;
+        width: 100%; /* Asegura que cada elemento del menú ocupe todo el ancho */
     }
-    nav ul li a:not(.logo){
-        display: none;
-    }
-    .logo{
-        padding-left: 20px;
-        padding-right: 15%;
-        width: 100%;
-        display: inline-block;
-    }
-    .menu-toggle {
-        display: block; /* Mostrar el botón de menú solo en móviles */
-        background-color: #2b3058;
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        font-size: 1.5rem;
-        margin: 0 auto;
-    }
-    .container{
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    .container p {
-        padding: 20px;
-    }
-    .container h2, .hero-text{
-        padding-left: 20px;
-    }
-    .hero-text{
-        width: 100%;
-        float: none;
-    }
-    .footer-content{
-        padding: 0 15px;
-        display: block;
-    }
-    .footer-content p{
-        margin-bottom: 0;
-    }
-    .hero-image {
-        position: relative;
-        float: none;
-        width: 80%;
-        margin: 0 auto;
-    }
-    .team-member {
-        flex-direction: column;
-        text-align: center;
-    }
-    .team-member img {
-        margin-right: 0;
-        margin-bottom: 1rem;
-    }
-    footer{position: relative;}
-    .footer-logo{ padding:30px 35px; margin: 0 auto;}
 }
