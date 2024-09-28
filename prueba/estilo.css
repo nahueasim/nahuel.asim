@@ -92,25 +92,66 @@ footer {
     bottom: 0;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 750px) {
+@media (max-width: 768px) {
+    .miembros {
+        grid-template-columns: 1fr;
+        margin: 35px 15px;
+    }
     nav ul {
         flex-direction: column;
+        align-items: flex-start;
+                margin-top: -50px;
     }
-
     nav ul li {
-        margin: 10px 0;
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+    nav ul li a:not(.logo){
+        display: none;
+    }
+    .logo{
+        padding-left: 20px;
+        padding-right: 15%;
+        width: 100%;
+        display: inline-block;
     }
 
-    section {
-        padding: 10px;
+    .container{
+        width: 100%;
+        margin: 0;
+        padding: 0;
     }
-
-    section h2 {
-        font-size: 1.5rem;
+    .container p {
+        padding: 20px;
     }
-
-    section p {
-        font-size: 1rem;
+    .container h2, .hero-text{
+        padding-left: 20px;
     }
+    .hero-text{
+        width: 100%;
+        float: none;
+    }
+    .footer-content{
+        padding: 0 15px;
+        display: block;
+    }
+    .footer-content p{
+        margin-bottom: 0;
+    }
+    .hero-image {
+        position: relative;
+        float: none;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .team-member {
+        flex-direction: column;
+        text-align: center;
+    }
+    .team-member img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    footer{position: relative;}
+    .footer-logo{ padding:30px 35px; margin: 0 auto;}
 }
