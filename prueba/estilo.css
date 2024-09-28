@@ -5,15 +5,18 @@
 }
 
 html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    height: 100%;
 }
 
 body {
     font-family: 'Times New Roman', Times, serif;
     background-color: #191c32;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure minimum height of 100% viewport height */
 }
 
 /* Header */
@@ -54,6 +57,11 @@ nav ul li a:hover {
     color: #191c32;
 }
 
+/* Main content */
+main {
+    flex: 1 0 auto; /* This will make the main content area grow to fill available space */
+}
+
 /* Section */
 section {
     padding: 20px;
@@ -87,71 +95,29 @@ footer {
     color: #fff;
     font-size: 1rem;
     font-style: italic;
-    position: absolute;
     width: 100%;
-    bottom: 0;
+    flex-shrink: 0; /* Prevent the footer from shrinking */
 }
 
 @media (max-width: 768px) {
-    .miembros {
-        grid-template-columns: 1fr;
-        margin: 35px 15px;
-    }
     nav ul {
         flex-direction: column;
-        align-items: flex-start;
-                margin-top: -50px;
+        align-items: center;
     }
+
     nav ul li {
         margin-bottom: 0.5rem;
         width: 100%;
-    }
-    nav ul li a:not(.logo){
-        display: none;
-    }
-    .logo{
-        padding-left: 20px;
-        padding-right: 15%;
-        width: 100%;
-        display: inline-block;
-    }
-
-    .container{
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    .container p {
-        padding: 20px;
-    }
-    .container h2, .hero-text{
-        padding-left: 20px;
-    }
-    .hero-text{
-        width: 100%;
-        float: none;
-    }
-    .footer-content{
-        padding: 0 15px;
-        display: block;
-    }
-    .footer-content p{
-        margin-bottom: 0;
-    }
-    .hero-image {
-        position: relative;
-        float: none;
-        width: 80%;
-        margin: 0 auto;
-    }
-    .team-member {
-        flex-direction: column;
         text-align: center;
     }
-    .team-member img {
-        margin-right: 0;
-        margin-bottom: 1rem;
+
+    .container {
+        width: 100%;
+        margin: 0;
+        padding: 0 20px;
     }
-    footer{position: relative;}
-    .footer-logo{ padding:30px 35px; margin: 0 auto;}
+
+    section img {
+        max-width: 100%;
+    }
 }
